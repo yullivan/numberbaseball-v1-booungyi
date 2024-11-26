@@ -3,13 +3,15 @@ package numberbaseball;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Random;
 
 public class Application {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Boolean isCorrect = false;
-
+        Random random = new Random();
+        출처: https://e-you.tistory.com/214 [Development:티스토리]
 //        int computernumber1 = 3;
 //        int computernumber2 = 6;
 //        int computernumber3 = 9;
@@ -18,9 +20,10 @@ public class Application {
         System.out.println("1부터 9까지의 서로 다른 숫자 3개를 맞춰보세요.");
 
         List<Integer> computerNumbers = new ArrayList<>();
-        computerNumbers.add(3);
-        computerNumbers.add(6);
-        computerNumbers.add(9);
+        computerNumbers.add(random.nextInt(9)+1);
+        computerNumbers.add(random.nextInt(9+1));
+        computerNumbers.add(random.nextInt(9)+1);
+
 
         while (!isCorrect) {
             List<Integer> userNumbers = new ArrayList<>();
