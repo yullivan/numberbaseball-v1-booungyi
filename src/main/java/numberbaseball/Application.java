@@ -16,6 +16,7 @@ public class Application {
 
         while (!isCorrect) {
             int strike = 0;
+            int ball = 0;
             // 사용자 입력 받기 (이 부분은 완성되어 있음)
             System.out.print("\n첫 번째 숫자를 입력하세요: ");
             int userNumber1 = scanner.nextInt();
@@ -34,9 +35,17 @@ public class Application {
             if (computernumber3 == userNumber3) {
                 strike++;
             }
+            // TODO: ball 개수 계산
+            if (userNumber1 != computernumber1) {
+                ball++;
+            }if (userNumber2 != computernumber2) {
+                ball++;
+            }if (userNumber3 != computernumber3) {
+                ball++;
+            }
 
             // TODO: 결과를 출력하세요 (예: "1 스트라이크")
-            System.out.printf("%d 스트라이크",strike);
+            System.out.printf("%d 스트라이크 %d 볼\n",strike,ball);
 
             // TODO: 3 스트라이크인 경우 게임을 끝내세요
             if (strike == 3) {
