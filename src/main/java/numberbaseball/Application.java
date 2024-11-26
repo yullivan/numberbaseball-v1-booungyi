@@ -1,5 +1,7 @@
 package numberbaseball;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Application {
@@ -8,41 +10,52 @@ public class Application {
         Scanner scanner = new Scanner(System.in);
         Boolean isCorrect = false;
 
-        int computernumber1 = 3;
-        int computernumber2 = 6;
-        int computernumber3 = 9;
+//        int computernumber1 = 3;
+//        int computernumber2 = 6;
+//        int computernumber3 = 9;
+
         System.out.println("숫자 야구 게임을 시작합니다!");
         System.out.println("1부터 9까지의 서로 다른 숫자 3개를 맞춰보세요.");
 
+        List<Integer> computerNumbers = new ArrayList<>();
+        computerNumbers.add(3);
+        computerNumbers.add(6);
+        computerNumbers.add(9);
+
         while (!isCorrect) {
+            List<Integer> userNumbers = new ArrayList<>();
+
             int strike = 0;
             int ball = 0;
+
             // 사용자 입력 받기 (이 부분은 완성되어 있음)
             System.out.print("\n첫 번째 숫자를 입력하세요: ");
-            int userNumber1 = scanner.nextInt();
+            userNumbers.add(scanner.nextInt());
             System.out.print("두 번째 숫자를 입력하세요: ");
-            int userNumber2 = scanner.nextInt();
+            userNumbers.add(scanner.nextInt());
             System.out.print("세 번째 숫자를 입력하세요: ");
-            int userNumber3 = scanner.nextInt();
+            userNumbers.add(scanner.nextInt());
 
             // TODO: strike 개수를 계산하세요
-            if (computernumber1 == userNumber1) {
-                strike++;
+            for (int i = 0; i < 3; i++) {
+                if (computerNumbers.get(i).equals(userNumbers.get(i))) {
+                    strike++;
+                }
             }
-            if (computernumber2 == userNumber2) {
-                strike++;
-            }
-            if (computernumber3 == userNumber3) {
-                strike++;
-            }
+
             // TODO: ball 개수 계산
-            if (userNumber1 != computernumber1) {
-                ball++;
-            }if (userNumber2 != computernumber2) {
-                ball++;
-            }if (userNumber3 != computernumber3) {
-                ball++;
+            for (int i  = 0; i < 3; i++) {
+                if (!computerNumbers.get(i).equals(userNumbers.get(i)))
+                {
+                    ball++;
+                }
             }
+//            if (!computerNumbers.get(0).equals(computerNumbers.get(0))) {
+//                ball++;
+//            }if (computerNumbers.get(0) != computerNumbers.get(0)) {
+//                ball++;
+//            }if (computerNumbers.get(0) != computerNumbers.get(0)) {
+//                ball++;
 
             // TODO: 결과를 출력하세요 (예: "1 스트라이크")
             System.out.printf("%d 스트라이크 %d 볼\n",strike,ball);
